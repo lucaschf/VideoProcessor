@@ -11,4 +11,3 @@ def configure_injector(binder: Binder) -> None:  # noqa: ARG001
 dependency_injector = Injector([configure_injector])
 
 __all__ = ["dependency_injector"]
-

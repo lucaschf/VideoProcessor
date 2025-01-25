@@ -21,7 +21,6 @@ class ExternalServiceModule(Module):
             region_name=settings.AWS_REGION,
         )
 
-
     @singleton
     @provider
     def provide_email_sender_service(self) -> IEmailSender:

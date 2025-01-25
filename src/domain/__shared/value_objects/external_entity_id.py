@@ -2,8 +2,8 @@ from dataclasses import dataclass, field
 from typing import Optional
 from uuid import UUID, uuid4
 
+from ..validator import DomainValidationError, ValidationErrorDetails, ValidationResult
 from .value_object import ValueObject
-from ..validator import ValidationResult, ValidationErrorDetails, DomainValidationError
 
 
 @dataclass(kw_only=True, frozen=True, slots=True)
@@ -31,12 +31,15 @@ class ExternalEntityId(ValueObject):
             InvalidExternalIdError: If the id is not a valid External ID.
         """
         if not isinstance(self.id, str):
-            return ValidationResult(is_valid=False, errors=[
-                ValidationErrorDetails(
-                    loc=("id",),
-                    msg="ID must be a string.",
-                ),
-            ])
+            return ValidationResult(
+                is_valid=False,
+                errors=[
+                    ValidationErrorDetails(
+                        loc=("id",),
+                        msg="ID must be a string.",
+                    ),
+                ],
+            )
 
         try:
             UUID(self.id)
@@ -48,7 +51,7 @@ class ExternalEntityId(ValueObject):
                         loc=("id",),
                         msg="ID must be a valid UUID.",
                     )
-                ]
+                ],
             )
 
         return ValidationResult(is_valid=True)

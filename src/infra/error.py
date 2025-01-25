@@ -18,13 +18,15 @@ class InfrastructureError(Exception):
 @dataclass(kw_only=True, frozen=True, slots=True)
 class StorageError(InfrastructureError):
     """Raised when an error occurs during a storage service call."""
+
     pass
 
 
 @dataclass(kw_only=True, frozen=True, slots=True)
 class EmailSenderError(InfrastructureError):
     """Raised when an error occurs during an email sender call."""
+
     message: str = "Falha no envio do email"
 
 
-__all__ = ["InfrastructureError", "StorageError", "EmailSenderError"]
+__all__ = ["EmailSenderError", "InfrastructureError", "StorageError"]
