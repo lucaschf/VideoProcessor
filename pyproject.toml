@@ -1,0 +1,29 @@
+[tool.poetry]
+name = "videoprocessor"
+version = "0.1.0"
+description = ""
+authors = ["lucaschf <lucaschfonseca@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+fastapi = "^0.115.7"
+uvicorn = "^0.34.0"
+injector = "^0.22.0"
+beanie = "^1.29.0"
+boto3 = "^1.36.6"
+pydantic-settings = "^2.7.1"
+
+
+[tool.poetry.group.dev.dependencies]
+setuptools = "^75.8.0"
+pre-commit = "^4.1.0"
+ruff = "^0.9.3"
+radon = "^6.0.1"
+coverage = "^7.6.10"
+gitlint = "^0.19.1"
+xenon = "^0.9.3"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
