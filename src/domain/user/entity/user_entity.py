@@ -3,7 +3,7 @@ from dataclasses import dataclass
 from src.domain.__shared.entity import Entity
 from src.domain.__shared.validator import ValidationResult
 from src.domain.__shared.value_objects import EmailAddress
-from src.domain.user.user_entity_validator import UserValidatorFactory
+from src.domain.user.entity.user_entity_validator import UserValidatorFactory
 
 
 @dataclass(kw_only=True, slots=True)
